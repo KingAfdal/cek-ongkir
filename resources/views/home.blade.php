@@ -2,13 +2,12 @@
 
 @section('content')
 <div class="container">
-    <div class="ongkir-header">
-        <h1>Code Ongkir</h1>
+    <div class="starter-template">
+        <h1>CodeOngkir</h1>
         <p class="lead">
-            Projek cek ongkir ke seluruh kota dan kabupaten Indonesia
+            Project Cek Ongkir ke Seluruh Kota dan Kabupaten di Indonesia
         </p>
     </div>
-
     <div class="card-deck mb-3 text-center">
         <div class="card mb-4 shadow-sm">
             <div class="card-header">
@@ -22,29 +21,29 @@
                 <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
             </div>
         </div>
-
-    <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Pro</h4>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Pro</h4>
+            </div>
+            <div class="card-body">
+                <i class="fas fa-box" style="font-size:80px"></i>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>Lacak lokasi paket</li>
+                </ul>
+                <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
+            </div>
         </div>
-        <div class="card-body">
-            <i class="fas fa-box" style="font-size:80px"></i>
-            <ul class="list-unstyled mt-3 mb-4">
-                <li>Lacak lokasi paket</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-        </div>
-    </div>
-    <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Enterprise</h4>
-        </div>
-        <div class="card-body">
-            <i class="fas fa-plane-departure" style="font-size:80px"></i>
-            <ul class="list-unstyled mt-3 mb-4">
-                <li>Cek Ongkir Pengiriman Internasional</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Enterprise</h4>
+            </div>
+            <div class="card-body">
+                <i class="fas fa-plane-departure" style="font-size:80px"></i>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>Cek Ongkir Pengiriman Internasional</li>
+                </ul>
+                <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+            </div>
         </div>
     </div>
 
@@ -55,7 +54,7 @@
                     <h4 class="my-0 font-weight-normal">Formulir Cek Ongkir</h4>
                 </div>
                 <div class="card-body">
-                <form action="" method="POST">
+                {{-- <form action="{{ route('store') }}" method="POST"> --}}
                     @csrf
                     <div class="form-row">
                         <div class="col">
@@ -64,9 +63,9 @@
                                 <label for="">Provinsi</label>
                                 <select name="province_origin" id="" class="form-control">
                                     <option value="">--Provinsi--</option>
-                                    {{-- @foreach ($province as $province => $value)
+                                    @foreach ($province as $province => $value)
                                     <option value="{{ $province }}"> {{ $value }}</option>
-                                    @endforeach --}}
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
@@ -83,18 +82,14 @@
                                 </select>
                             </div>
                         </div>
-                        {{-- <div class="col">
+                        <div class="col">
                             <h5 class="text-muted">Pilih Expedisi:</h5>
-                            @foreach ($courier as $key => $value)
+                            {{-- @foreach ($courier as $key => $value)
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" id="courier-{{ $key }}" name="courier[]" value="{{ $value->code }}">
                                 <label class="form-check-label" for="courier-{{ $key }}">{{ $value->title }}</label>
                             </div>
-                            @endforeach
-                        </div> --}}
-                        <div class="col">
-                            <h5 class="text-muted">Pilih Expedisi</h5>
-
+                            @endforeach --}}
                         </div>
                     </div>
                     <div class="form-row">
@@ -109,4 +104,3 @@
     </div>
 </div>
 @endsection
-

@@ -49860,6 +49860,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/ongkir.js":
+/*!********************************!*\
+  !*** ./resources/js/ongkir.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('select[name="province_origin"]').on('change', function () {
+  var provinceId = $(this).val();
+
+  if (provinceId) {
+    jQuery.ajax({
+      url: '/api/province/' + provinceId + '/cities',
+      type: "GET",
+      dataType: "json",
+      success: function success(data) {
+        $('select[name="city_origin"]').empty();
+        $.each(data, function (key, value) {
+          $('select[name="city_origin"]').append("<option value=\"".concat(key, "\"> ").concat(value, " </option>"));
+        });
+      }
+    });
+  } else {
+    $('select[name="city_origin"]').empty();
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49872,13 +49901,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!**************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/js/ongkir.js ./resources/sass/app.scss ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! D:\laravel\cek\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\laravel\cek\resources\js\ongkir.js */"./resources/js/ongkir.js");
 module.exports = __webpack_require__(/*! D:\laravel\cek\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
